@@ -1,0 +1,37 @@
+{% extends 'base.html'%} {% block title %}
+<title>PR3 - All Entries</title>
+{% endblock %} {% block content %} {% load function_use %}
+<div class="container-md">
+  <div class="card mt-3">
+    <div class="card-body p-0">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Goods</th>
+            <th>Gross Production</th>
+            <th>Tara</th>
+            <th>Net Production</th>
+            <th>Gross Profit</th>
+            <th>Net Profit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for factory in factories %}
+          <tr>
+            <td>{{ factory.city }}</td>
+            <td>{{ factory.goods }}</td>
+            <td>{{ factory.total_amount|total_quantity_monthly }}</td>
+            <td>{{ factory.tara|total_quantity_monthly }}</td>
+            <td>{{ factory.netto|total_quantity_monthly }}</td>
+            <td>{{ factory.total_amount|profit_monthly:factory.goods.goods_price}}</td>
+            <td>{{ factory.netto|profit_monthly:factory.goods.goods_price}}</td>
+          </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
