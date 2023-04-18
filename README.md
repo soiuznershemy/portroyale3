@@ -12,3 +12,8 @@ For the current version (0.1), use localhost/admin to manually input changes wit
 
   Password: root1234
 You must reconfigure the database - its entirety -  as well, as this uses mysql database.
+
+v0.11a:
+
+added city displays and each cities production and consumption information.
+
