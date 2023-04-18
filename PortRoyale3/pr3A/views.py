@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from django.utils import timezone
 from django.views import generic
 
 from .models import City, Good, Products_in_City
@@ -76,23 +75,73 @@ def netto(idt):
     net.netto = net.total_amount - net.tara
     net.save()
 
-# class IndexView(generic.ListView):
-#     template_name = "pr3A/all_items.html"
-#     context_object_name = "factories"
-    
-#     def get_queryset(self):
-#         return Products_in_City.objects.all()
-
-def IndexView(request):
-    products = Products_in_City.objects.all()
+def index_function(products):
     for product in products:
         id = product.id
         name = product.goods.goods_name
         gross_product(id)
         tara_product(name)
         netto(id)
-    
+        
+def count_function():
+    products = Products_in_City.objects.all()
+    index_function(products)
+
+def consuming(town):
+
+    # function
+    city = City.objects.get(city_name=town)
+
+    # defining context variable
+    consumption = []
+
+    for goods in city.products_in_city_set.all():
+        match goods.goods.goods_name:
+            case 'Textile':
+                consumption.append({'Cotton': goods.total_amount * 1 * 30})
+            case 'Raw Metal':
+                consumption.append({'Wood': goods.total_amount * .5 * 30})
+            case 'Metal Goods':
+                consumption.append({'Wood': goods.total_amount * .5 * 30})
+                consumption.append({'Raw Metal': goods.total_amount * 1 * 30})
+            case 'Clothing':
+                consumption.append({'Textile': goods.total_amount * 1 * 30})
+                consumption.append({'Dye': goods.total_amount * 1 * 30})
+            case 'Rope':
+                consumption.append({'Hemp': goods.total_amount * 1 * 30})
+            case 'Rum':
+                consumption.append({'Wood': goods.total_amount * .5 * 30})
+                consumption.append({'Sugar': goods.total_amount * 1 * 30})
+            case 'Bread':
+                consumption.append({'Wheat': goods.total_amount * .5 * 30})
+                consumption.append({'Sugar': goods.total_amount * .5 * 30})
+            case 'Coffee':
+                consumption.append({'Metal Goods': goods.total_amount * .25 * 30})
+            case 'Cacao':
+                consumption.append({'Metal Goods': goods.total_amount * .25 * 30})
+            case 'Meat':
+                consumption.append({'Corn': goods.total_amount * 2 * 30})
+    return consumption
+
+def AllView(request):
+    products = Products_in_City.objects.all()
+    index_function(products)
     context = {
         'factories':products
     }
     return render(request, 'pr3A/all_items.html', context)
+
+class IndexView(generic.ListView):
+    count_function()
+    model = City
+    template_name = "pr3A/index.html"
+    context_object_name = "cities"
+
+def ResultView(request, slug):
+    towns = get_object_or_404(City, slug=slug)
+    consuming(towns)
+    context = {
+        'factories': towns,
+        'consumption': consuming(towns),
+    }
+    return render(request, 'pr3A/results.html', context)

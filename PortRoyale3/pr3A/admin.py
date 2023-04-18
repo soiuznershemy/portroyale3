@@ -9,13 +9,10 @@ class GoodsInline(admin.TabularInline):
 
 
 class CitiesAdmin(admin.ModelAdmin):
-    fieldsets = [
-        (None, {"fields": ["city_name"]}),
-    ]
     inlines = [GoodsInline]
     list_display = ["city_name"]
-    # list_filter = ["pub_date"]
-    # search_fields = ["question_text"]
+    prepopulated_fields = {'slug': ('city_name',)}
+    search_fields = ["city_name"]
 
 admin.site.register(City, CitiesAdmin)
 admin.site.register(Good)
