@@ -15,5 +15,6 @@ You must reconfigure the database - its entirety -  as well, as this uses mysql 
 
 v0.11a:
 
-added city displays and each cities production and consumption information.
+- Added city displays and each cities production and consumption information.
+- Updated links into each city as slug links.
 
