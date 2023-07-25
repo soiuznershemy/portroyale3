@@ -41,13 +41,21 @@ class Products_in_City(models.Model):
     goods = models.ForeignKey(Good,
                              on_delete=models.CASCADE)
     factory_amount = models.IntegerField(default=0)
-    total_amount = models.IntegerField(default=0)
-    netto = models.IntegerField(default=0)
-    tara = models.IntegerField(default=0)
+    total_amount = models.FloatField(default=0)
+    netto = models.FloatField(default=0.00)
+    tara = models.FloatField(default=0.00)
     
     class Meta:
         ordering = ["city"]
 
     def saveProducts(self):
         self.save()
+
+# class Product_Total(models.Model):
+#     goods_type = models.ForeignKey(Good,
+#                                    on_delete=models.CASCADE)
+#     factory_total = models.IntegerField(default=0)
+#     production_total = models.IntegerField
+    
+
     

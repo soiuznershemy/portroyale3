@@ -75,7 +75,7 @@ def netto(idt):
     net.netto = net.total_amount - net.tara
     net.save()
 
-def index_function(products):
+def return_function(products):
     for product in products:
         id = product.id
         name = product.goods.goods_name
@@ -85,7 +85,7 @@ def index_function(products):
         
 def count_function():
     products = Products_in_City.objects.all()
-    index_function(products)
+    return_function(products)
 
 def consuming(town):
 
@@ -123,9 +123,11 @@ def consuming(town):
                 consumption.append({'Corn': goods.total_amount * 2 * 30})
     return consumption
 
+
+# Final display in views
 def AllView(request):
     products = Products_in_City.objects.all()
-    index_function(products)
+    return_function(products)
     context = {
         'factories':products
     }
@@ -140,8 +142,19 @@ class IndexView(generic.ListView):
 def ResultView(request, slug):
     towns = get_object_or_404(City, slug=slug)
     consuming(towns)
+    
     context = {
         'factories': towns,
         'consumption': consuming(towns),
     }
     return render(request, 'pr3A/results.html', context)
+
+def entry(request, slug):
+    city = get_object_or_404(City, slug=slug)
+    sel_city = city.products_in_city_set.get(pk=request.POST["product_id"])
+    sel_city.factory_amount = request.POST["factory_quantity"]
+    sel_city.save()
+
+    count_function()
+        
+    return HttpResponseRedirect(reverse("pr3A:result", args=(city.slug,)))

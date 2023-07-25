@@ -5,10 +5,10 @@
   <div class="card mt-3">
     <div class="card-body p-3">
       <table class="table table-bordered table-striped">
+        <p class="text-center fs-2 fw-bold">All Productions List</p>
         <thead class="table-dark">
           <tr>
             <th>No.</th>
-            <th>City</th>
             <th>Goods</th>
             <th>Factories</th>
             <th>Gross Production</th>
@@ -21,7 +21,6 @@
           {% for factory in factories %}
           <tr>
             <td>{{ forloop.counter }}</td>
-            <td>{{ factory.city }}</td>
             <td>{{ factory.goods }}</td>
             <td>{{ factory.factory_amount }}</td>
             <td>{{ factory.total_amount|total_quantity_monthly }}</td>

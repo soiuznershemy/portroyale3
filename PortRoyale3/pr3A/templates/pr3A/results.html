@@ -23,7 +23,16 @@
           <tr>
             <td>{{ forloop.counter }}</td>
             <td>{{ factory.goods }}</td>
-            <td>{{ factory.factory_amount}}</td>
+            <td>
+              <form action="{% url 'pr3A:entry' factory.city.slug %}" method="post">
+                <input type="hidden" id="town_name{{ forloop.counter }}" name="product_id" value="{{ factory.id }}" />
+                {% csrf_token %}
+                <fieldset>
+                  <label for="quantity{{ forloop.counter }}"></label>
+                  <input type="number" id="quantity{{ forloop.counter }}" name="factory_quantity" min="0" value="{{factory.factory_amount}}" />
+                </fieldset>
+              </form>
+            </td>
             <td>{{ factory.total_amount|total_quantity_monthly }}</td>
             <td>{{ factory.tara|total_quantity_monthly }}</td>
             <td>{{ factory.netto|total_quantity_monthly }}</td>

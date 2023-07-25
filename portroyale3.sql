@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `portroyale3` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `portroyale3`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portroyale3
@@ -116,7 +118,7 @@ CREATE TABLE `auth_user` (
   `date_joined` datetime(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +127,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (2,'pbkdf2_sha256$600000$x1uZoeZitHnrrntJ7kSlqx$55nsxMpc+ehT9ewtXmvfqf6UkNMgyMtq5SsF/vbU0Ks=',NULL,1,'admin','','','avadakedavra@hogwarts.net',1,1,'2023-04-14 09:22:04.734880');
+INSERT INTO `auth_user` VALUES (3,'pbkdf2_sha256$600000$p64c3oA6IxUeyFCDs072qE$8kpCQDSCUNaX1LjzikJLB5bISduqDno1EjrSGlYRy38=','2023-04-21 08:11:53.231697',1,'admin','','','avadakedavra@hogwarts.com',1,1,'2023-04-21 08:11:40.275725');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -207,7 +209,7 @@ CREATE TABLE `django_admin_log` (
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
   CONSTRAINT `django_admin_log_chk_1` CHECK ((`action_flag` >= 0))
-) ENGINE=InnoDB AUTO_INCREMENT=163 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=222 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -216,6 +218,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+INSERT INTO `django_admin_log` VALUES (210,'2023-04-21 09:07:03.246521','36','Metal Goods',2,'[]',2,3),(211,'2023-04-21 09:09:33.063677','20','Evangelista',2,'[{\"changed\": {\"name\": \"products_in_ city\", \"object\": \"Evangelista\", \"fields\": [\"Factory amount\"]}}]',1,3),(212,'2023-04-21 09:09:53.863598','20','Evangelista',2,'[{\"changed\": {\"name\": \"products_in_ city\", \"object\": \"Evangelista\", \"fields\": [\"Factory amount\"]}}]',1,3),(213,'2023-04-21 09:17:23.071718','25','Florida Keys',2,'[{\"changed\": {\"name\": \"products_in_ city\", \"object\": \"Florida Keys\", \"fields\": [\"Tara\"]}}]',1,3),(214,'2023-04-21 09:21:36.211652','28','Barbados',2,'[{\"changed\": {\"name\": \"products_in_ city\", \"object\": \"Barbados\", \"fields\": [\"Factory amount\"]}}]',1,3),(215,'2023-04-21 09:22:06.461580','25','Florida Keys',2,'[{\"changed\": {\"name\": \"products_in_ city\", \"object\": \"Florida Keys\", \"fields\": [\"Tara\"]}}]',1,3),(216,'2023-04-21 09:24:32.602329','25','Florida Keys',2,'[]',1,3),(217,'2023-04-21 09:26:18.238345','25','Florida Keys',2,'[{\"changed\": {\"name\": \"products_in_ city\", \"object\": \"Florida Keys\", \"fields\": [\"Tara\"]}}]',1,3),(218,'2023-04-21 09:26:22.013861','25','Florida Keys',2,'[]',1,3),(219,'2023-04-21 09:42:55.077436','28','Barbados',2,'[{\"changed\": {\"name\": \"products_in_ city\", \"object\": \"Products_in_City object (24)\", \"fields\": [\"Tara\"]}}]',1,3),(220,'2023-04-21 09:43:02.305742','28','Barbados',2,'[{\"changed\": {\"name\": \"products_in_ city\", \"object\": \"Products_in_City object (24)\", \"fields\": [\"Factory amount\", \"Tara\"]}}]',1,3),(221,'2023-04-21 09:49:16.010949','28','Barbados',2,'[{\"changed\": {\"name\": \"products_in_ city\", \"object\": \"Products_in_City object (24)\", \"fields\": [\"Factory amount\"]}}]',1,3);
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,7 +261,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -267,7 +270,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2023-04-13 10:35:41.021493'),(2,'auth','0001_initial','2023-04-13 10:35:41.481245'),(3,'admin','0001_initial','2023-04-13 10:35:41.614380'),(4,'admin','0002_logentry_remove_auto_add','2023-04-13 10:35:41.625351'),(5,'admin','0003_logentry_add_action_flag_choices','2023-04-13 10:35:41.636357'),(6,'contenttypes','0002_remove_content_type_name','2023-04-13 10:35:41.720099'),(7,'auth','0002_alter_permission_name_max_length','2023-04-13 10:35:41.798442'),(8,'auth','0003_alter_user_email_max_length','2023-04-13 10:35:41.835480'),(9,'auth','0004_alter_user_username_opts','2023-04-13 10:35:41.847447'),(10,'auth','0005_alter_user_last_login_null','2023-04-13 10:35:41.938413'),(11,'auth','0006_require_contenttypes_0002','2023-04-13 10:35:41.942402'),(12,'auth','0007_alter_validators_add_error_messages','2023-04-13 10:35:41.955369'),(13,'auth','0008_alter_user_username_max_length','2023-04-13 10:35:42.024186'),(14,'auth','0009_alter_user_last_name_max_length','2023-04-13 10:35:42.097385'),(15,'auth','0010_alter_group_name_max_length','2023-04-13 10:35:42.125564'),(16,'auth','0011_update_proxy_permissions','2023-04-13 10:35:42.136574'),(17,'auth','0012_alter_user_first_name_max_length','2023-04-13 10:35:42.204503'),(18,'pr3A','0001_initial','2023-04-13 10:35:42.342516'),(19,'sessions','0001_initial','2023-04-13 10:35:42.387395'),(20,'pr3A','0002_alter_products_in_city_options','2023-04-13 23:53:45.942910'),(21,'pr3A','0003_rename_netto_products_in_city_tara','2023-04-13 23:53:45.973501'),(22,'pr3A','0004_rename_projected_gross_profit_products_in_city_netto_and_more','2023-04-14 00:10:00.306175');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2023-04-13 10:35:41.021493'),(2,'auth','0001_initial','2023-04-13 10:35:41.481245'),(3,'admin','0001_initial','2023-04-13 10:35:41.614380'),(4,'admin','0002_logentry_remove_auto_add','2023-04-13 10:35:41.625351'),(5,'admin','0003_logentry_add_action_flag_choices','2023-04-13 10:35:41.636357'),(6,'contenttypes','0002_remove_content_type_name','2023-04-13 10:35:41.720099'),(7,'auth','0002_alter_permission_name_max_length','2023-04-13 10:35:41.798442'),(8,'auth','0003_alter_user_email_max_length','2023-04-13 10:35:41.835480'),(9,'auth','0004_alter_user_username_opts','2023-04-13 10:35:41.847447'),(10,'auth','0005_alter_user_last_login_null','2023-04-13 10:35:41.938413'),(11,'auth','0006_require_contenttypes_0002','2023-04-13 10:35:41.942402'),(12,'auth','0007_alter_validators_add_error_messages','2023-04-13 10:35:41.955369'),(13,'auth','0008_alter_user_username_max_length','2023-04-13 10:35:42.024186'),(14,'auth','0009_alter_user_last_name_max_length','2023-04-13 10:35:42.097385'),(15,'auth','0010_alter_group_name_max_length','2023-04-13 10:35:42.125564'),(16,'auth','0011_update_proxy_permissions','2023-04-13 10:35:42.136574'),(17,'auth','0012_alter_user_first_name_max_length','2023-04-13 10:35:42.204503'),(18,'pr3A','0001_initial','2023-04-13 10:35:42.342516'),(19,'sessions','0001_initial','2023-04-13 10:35:42.387395'),(20,'pr3A','0002_alter_products_in_city_options','2023-04-13 23:53:45.942910'),(21,'pr3A','0003_rename_netto_products_in_city_tara','2023-04-13 23:53:45.973501'),(22,'pr3A','0004_rename_projected_gross_profit_products_in_city_netto_and_more','2023-04-14 00:10:00.306175'),(23,'pr3A','0005_city_slug','2023-04-16 00:42:16.903192'),(24,'pr3A','0006_alter_city_slug','2023-04-16 00:57:18.050082'),(25,'pr3A','0007_alter_city_slug','2023-04-16 00:59:26.692840'),(26,'pr3A','0008_alter_city_slug','2023-04-16 01:15:23.080008'),(27,'pr3A','0009_alter_products_in_city_total_amount','2023-04-21 09:23:38.539137'),(28,'pr3A','0010_alter_products_in_city_netto_and_more','2023-04-21 09:25:16.939905'),(29,'pr3A','0011_alter_products_in_city_total_amount','2023-04-21 09:35:07.638355'),(30,'pr3A','0012_alter_products_in_city_netto','2023-04-21 09:42:36.380456'),(31,'pr3A','0013_alter_products_in_city_tara','2023-04-21 09:43:58.645890'),(32,'pr3A','0014_alter_products_in_city_netto_and_more','2023-04-21 09:48:34.224880');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,7 +296,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('ociec2uxm5hfohactnbmvm7r7j2h2tsq','.eJxVjMsKwjAQAP8lZwnbvNej935DSLJbW5UUmvYk_rsEetDrzDBvEdOxz_FovMWFxFUM4vLLcipPrl3QI9X7Ksta923JsifytE2OK_HrdrZ_gzm1uW8ZtLKqFHKT8gRgjUKPLmRUoK0fHGFBzTx5sGg0a6MGRKQAgDYk8fkCr8E2PA:1pmuRz:4qgu5qXEI81F-I1FGHA6S-CynVVJChHBmu1bbdlC1rs','2023-04-27 10:45:11.222513');
+INSERT INTO `django_session` VALUES ('pc3tbgkgvfdrx2glvttjd6rqeiu98adm','.eJxVjMsOwiAQRf-FtSFAebp07zeQYRikaiAp7cr479qkC93ec859sQjbWuM2aIlzZmc2sdPvlgAf1HaQ79BunWNv6zInviv8oINfe6bn5XD_DiqM-q1FsVC81V4Kj0IpJG1NChQQUPtsNLhCJltIWQkkNzmSUChMoUjri2LvD--8OHQ:1ppls1:5hNTLMjxgPI9KPMQyGZKo4eyokayY8e8Eo2pM_FtZc0','2023-05-05 08:11:53.235364'),('z6mwxawhzmndozzexurhvx7pai7ird9b','.eJxVjEEOwiAQRe_C2pApBVpcuu8ZyMAMUjWQlHZlvLtt0oVu_3vvv4XHbc1-a7z4mcRVKHH53QLGJ5cD0APLvcpYy7rMQR6KPGmTUyV-3U737yBjy3sNCC7q0BGknhUThSFZNM4MJlruNSQEJjMaC0CktFKdUwi4ozFFBPH5AvNtOBM:1pnFsK:lIqNBtkYUFwauJAxn4gDjHPWCnmNxRwq8N4CI_LaEY0','2023-04-28 09:37:48.250496');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -307,8 +310,10 @@ DROP TABLE IF EXISTS `pr3a_city`;
 CREATE TABLE `pr3a_city` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `city_name` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `slug` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pr3A_city_slug_68ea2c83` (`slug`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -317,7 +322,7 @@ CREATE TABLE `pr3a_city` (
 
 LOCK TABLES `pr3a_city` WRITE;
 /*!40000 ALTER TABLE `pr3a_city` DISABLE KEYS */;
-INSERT INTO `pr3a_city` VALUES (19,'Cancun'),(20,'Evangelista'),(21,'Belize'),(22,'Port Royale'),(23,'Havana'),(24,'Nombre de Dios'),(25,'Florida Keys'),(26,'Roatan'),(27,'Cayman'),(28,'Barbados');
+INSERT INTO `pr3a_city` VALUES (19,'Cancun','cancun'),(20,'Evangelista','evangelista'),(22,'Port Royale','port-royale'),(23,'Havana','havana'),(24,'Nombre de Dios','nombre-de-dios'),(25,'Florida Keys','florida-keys'),(26,'Roatan','roatan'),(27,'Cayman','cayman'),(28,'Barbados','barbados'),(29,'Sisal','sisal');
 /*!40000 ALTER TABLE `pr3a_city` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -372,7 +377,7 @@ CREATE TABLE `pr3a_good_city_name` (
 
 LOCK TABLES `pr3a_good_city_name` WRITE;
 /*!40000 ALTER TABLE `pr3a_good_city_name` DISABLE KEYS */;
-INSERT INTO `pr3a_good_city_name` VALUES (23,23,19),(24,24,19),(25,25,20),(26,26,20),(27,27,21),(28,28,21),(29,29,22),(30,30,22),(31,31,23),(32,32,23),(33,33,24),(34,34,24),(35,35,25),(36,36,25),(37,37,26),(38,38,26),(39,39,27),(40,40,27),(41,41,28),(42,42,28);
+INSERT INTO `pr3a_good_city_name` VALUES (23,23,19),(24,24,19),(25,25,20),(26,26,20),(29,29,22),(30,30,22),(31,31,23),(32,32,23),(33,33,24),(34,34,24),(35,35,25),(36,36,25),(37,37,26),(38,38,26),(39,39,27),(40,40,27),(41,41,28),(42,42,28);
 /*!40000 ALTER TABLE `pr3a_good_city_name` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -386,9 +391,9 @@ DROP TABLE IF EXISTS `pr3a_products_in_city`;
 CREATE TABLE `pr3a_products_in_city` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `factory_amount` int NOT NULL,
-  `total_amount` int NOT NULL,
-  `tara` int NOT NULL,
-  `netto` int NOT NULL,
+  `total_amount` double NOT NULL,
+  `tara` double NOT NULL,
+  `netto` double NOT NULL,
   `city_id` bigint NOT NULL,
   `goods_id` bigint NOT NULL,
   PRIMARY KEY (`id`),
@@ -396,7 +401,7 @@ CREATE TABLE `pr3a_products_in_city` (
   KEY `pr3A_products_in_city_goods_id_a2114114_fk_pr3A_good_id` (`goods_id`),
   CONSTRAINT `pr3A_products_in_city_city_id_76eff7ff_fk_pr3A_city_id` FOREIGN KEY (`city_id`) REFERENCES `pr3a_city` (`id`),
   CONSTRAINT `pr3A_products_in_city_goods_id_a2114114_fk_pr3A_good_id` FOREIGN KEY (`goods_id`) REFERENCES `pr3a_good` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -405,7 +410,7 @@ CREATE TABLE `pr3a_products_in_city` (
 
 LOCK TABLES `pr3a_products_in_city` WRITE;
 /*!40000 ALTER TABLE `pr3a_products_in_city` DISABLE KEYS */;
-INSERT INTO `pr3a_products_in_city` VALUES (21,0,0,0,0,19,23),(22,0,0,0,0,19,24),(23,0,0,0,0,21,28),(24,0,0,0,0,28,41),(25,0,0,0,0,28,42),(26,0,0,0,0,21,27),(27,0,0,0,0,27,39),(28,0,0,0,0,27,40),(29,0,0,0,0,20,25),(30,0,0,0,0,20,26),(31,0,0,0,0,25,35),(32,0,0,0,0,25,36),(33,0,0,0,0,23,31),(34,0,0,0,0,23,32),(35,2,12,0,12,24,34),(36,0,0,0,0,24,33),(37,0,0,0,0,22,29),(38,0,0,0,0,22,30),(39,0,0,0,0,26,37),(40,0,0,0,0,26,38);
+INSERT INTO `pr3a_products_in_city` VALUES (21,8,32,16,16,19,23),(22,8,8,0,8,19,24),(24,8,16,0,16,28,41),(25,4,16,0,16,28,42),(27,8,32,24,8,27,39),(28,4,16,8,8,27,40),(29,12,24,12,12,20,25),(30,4,8,0,8,20,26),(31,6,12,12,0,25,35),(32,4,8,8,0,25,36),(33,12,72,0,72,23,31),(34,8,16,0,16,23,32),(35,16,96,28,68,24,34),(36,12,12,0,12,24,33),(37,8,32,24,8,22,29),(38,12,12,0,12,22,30),(39,4,24,12,12,26,37),(40,12,24,0,24,26,38),(41,12,36,8,28,29,28),(42,8,16,0,16,29,27);
 /*!40000 ALTER TABLE `pr3a_products_in_city` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -418,4 +423,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-14 16:33:56
+-- Dump completed on 2023-07-25 14:25:08
