@@ -6,11 +6,11 @@ A Django-based app to calculate productions, consumptions, and supposed 100% goo
 4. Type pip install -r requirements.txt in the terminal window to install all the requirements to run the app.
 5. Type python manage.py runserver to start a localhost server for the app.
 
-For the current version (0.11b), use localhost/admin to manually input changes with credentials,
+For the current version (0.12), use localhost/admin to manually input changes with credentials,
 
   Username: admin
 
-  Password: root1234
+  Password: root1212
 You must reconfigure the database - its entirety -  as well, as this uses mysql database.
 
 v0.11a:
@@ -26,7 +26,7 @@ v0.011b:
 
 v0.12:
 
-- RAR contains mysql and main folder named PortRoyale3
+- RAR contains mysql and the main folder named PortRoyale3
 
 
 
