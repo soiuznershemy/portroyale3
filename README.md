@@ -24,4 +24,9 @@ v0.011b:
 - Added direct input from each city's dedicated pages.
 - Added a navigation page listing every cities with production base.
 
+v0.12:
+
+- RAR contains mysql and main folder named PortRoyale3
+
+
 
